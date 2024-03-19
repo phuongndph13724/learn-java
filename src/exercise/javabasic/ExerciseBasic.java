@@ -1,5 +1,8 @@
 package exercise.javabasic;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ExerciseBasic {
@@ -97,23 +100,110 @@ public class ExerciseBasic {
         System.out.print("Nhập số lượng phần tử tron mảng: ");
         valueLength = scanner.nextInt();
         int[] arrayNumber = new int[valueLength];
-//        int[] arrayNumberEven = new int[];
+        ArrayList<Integer> arrayNumberEven = new ArrayList<>(); // Mảng số chẵn
+        ArrayList<Integer> arrayNumberOdd = new ArrayList<>(); // Mảng số lẻ
+        int totalNunberOdd = 0;
+
 
         for (int index = 0; index < valueLength; index++){
             System.out.print("Nhập vào giá trị các phần tử.: ");
             arrayNumber[index] = scanner.nextInt();
         }
         int valueMax = 0;
-        int valueSum = 0;
         for (int index = 0; index < valueLength; index++){
             if (arrayNumber[index] > valueMax){
+                // Tìm số lớn nhất
                 valueMax = arrayNumber[index];
             }
             if (arrayNumber[index] % 2 == 0){
-                System.out.println(arrayNumber[index]);
+                // Tìm các số chẵn
+                arrayNumberEven.add(arrayNumber[index]);
+            }else if (arrayNumber[index] % 2 != 0 && arrayNumber[index] > 0){
+                // Tìm các số lẻ và tính tổng của các số lẻ đo'
+                arrayNumberOdd.add(arrayNumber[index]);
+                totalNunberOdd += arrayNumber[index];
             }
         }
-        System.out.println("Max.: " + valueMax);
-        System.out.println("Tổng số đầu + cuối có giá trị là :" + (arrayNumber[0] + arrayNumber[valueLength - 1]));
+        System.out.println("Max: " + valueMax);
+        System.out.println("Tổng số (đầu + cuối) có giá trị là :" + (arrayNumber[0] + arrayNumber[valueLength - 1]));
+        System.out.println("Mảng số chẵn:" + arrayNumberEven.toString());
+        System.out.println("Mảng số chẵn:" + arrayNumberOdd.toString());
+        System.out.println("Tổng các số lẻ lớn hơn 0 là: " + totalNunberOdd);
+
+        for (int index = 0; index < valueLength; index++){
+            for (int k = index + 1; k < valueLength; k++){
+                if (arrayNumber[index] > arrayNumber[k]){
+                    int temp = arrayNumber[index];
+                    arrayNumber[index] = arrayNumber[k];
+                    arrayNumber[k] = temp;
+                }
+            }
+        }
+        System.out.println("Mảng đã sắp xếp theo thứ tự tăng dần :" + Arrays.toString(arrayNumber));
+    }
+
+    public void importConsoleSeven(){
+        System.out.print("Nhập vào số hàng : ");
+        int row = scanner.nextInt();
+
+        System.out.print("Nhập vào số cột : ");
+        int column = scanner.nextInt();
+
+        int[][] arrayNumber = new int[row][column];
+
+        if(row <= 1){
+            this.importConsoleSeven();
+        }else {
+            for(int index = 0; index < row; index++){
+                for (int k = 0; k < column; k++){
+                    System.out.print("Nhập vào giá trị: ");
+                    int value = scanner.nextInt();
+                    arrayNumber[index][k] = value;
+                }
+            }
+            // Tính tổng của các phần tử trong mảng hai chiều
+            int total = 0;
+            int totalDivisible = 0;
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < column; j++) {
+                    total += arrayNumber[i][j];
+                    if (arrayNumber[i][j] % 5 == 0){
+                        totalDivisible += arrayNumber[i][j];
+                    }
+                }
+                System.out.println();
+            }
+
+            System.out.println("Tổng của các phần tử trong mảng hai chiều : " + total);
+
+            System.out.println("Tổng của các phần tử chia hết cho 5 trong mảng hai chiều : " + totalDivisible);
+        }
+
+    }
+
+    public void importConsoleEight(){
+        System.out.print("Nhập chuỗi String : ");
+        String strValue = scanner.nextLine();
+        int numberActiveC = 0;
+        int indexFirtsC = 0;
+        for (int index = 0; index < strValue.length(); index++){
+
+            if (strValue.charAt(index) == 'c'){
+                if (numberActiveC == 0){
+                    indexFirtsC = index;
+                    numberActiveC += 1;
+                }else {
+                    numberActiveC += 1;
+                }
+            }
+        }
+        System.out.println("Số lần xuất hiện của c là : " + numberActiveC);
+
+        System.out.println("Vị trí xuất hiện đầu tiên của C là : " + indexFirtsC);
+        String strValueSort = "";
+        for (int index = strValue.length() - 1; index > 0; index--){
+            strValueSort += strValue.charAt(index);
+        }
+        System.out.println("Mảng đã xắp xếp lại là : " + strValueSort);
     }
 }
