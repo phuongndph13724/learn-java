@@ -1,4 +1,5 @@
 import exercise.javabasic.ExerciseBasic;
+import exercise.oop.studentManagement.UseClass.MainUserManagement;
 
 public class Router {
     String route;
@@ -10,6 +11,8 @@ public class Router {
     public void pathRedirection(){
         if (this.route == "one"){
             pathRedirectionOne();
+        } else if (route == "two") {
+            pathRedirectionTwo();
         }
     }
 
@@ -32,10 +35,10 @@ public class Router {
 //        exerciseBasic.importConsoleTwo(); // Kêt quả bài 2
 
         /*
-         * Cho biến x và y kiểu số nguyên được nhập vào từ bàn phím (cả x và y đều khác 0)..
+         * 3. Cho biến x và y kiểu số nguyên được nhập vào từ bàn phím (cả x và y đều khác 0)..
          * Xác định điểm có tọa độ (x, y) đó nằm ở góc phần tư nào (Hình 1)
          * */
-//        exerciseBasic.importConsoleThree(); // Kêt quả bài 3
+        exerciseBasic.importConsoleThree(); // Kêt quả bài 3
 
         /*
          4. Viết chương trình hiển thị ra màn hình các số từ 0 tới 24 giống như sau:
@@ -79,8 +82,13 @@ public class Router {
             - Vị trí đầu tiên mà ký tự c xuất hiện trong chuỗi s.
             - Chuỗi s bị đảo ngược.
          * */
-         exerciseBasic.importConsoleEight(); // Kêt quả bài 8
+//         exerciseBasic.importConsoleEight(); // Kêt quả bài 8
 
+    }
+
+    private void pathRedirectionTwo(){
+        MainUserManagement mainUserManagement = new MainUserManagement();
+        mainUserManagement.run();
     }
 
 }

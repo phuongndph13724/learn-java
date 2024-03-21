@@ -18,13 +18,14 @@ public class ExerciseBasic {
             System.out.println(valueInteger);
             if ( valueInteger % 2 != 0){
                 System.out.println("Odd");
-            }
-            if (valueInteger <= 30){
-                System.out.println("Small Even");
-            } else if (valueInteger <= 60) {
-                System.out.println("Medium Even");
-            } else if (valueInteger <= 100) {
-                System.out.println("Big Even");
+            }else {
+                if (valueInteger <= 30){
+                    System.out.println("Small Even");
+                } else if (valueInteger <= 60) {
+                    System.out.println("Medium Even");
+                } else if (valueInteger <= 100) {
+                    System.out.println("Big Even");
+                }
             }
         }else {
             System.out.println("Số không lớn hơn hoặc bằng 1 và không nhỏ hơn hoặc bằng 100");
@@ -47,19 +48,19 @@ public class ExerciseBasic {
     }
 
     public void importConsoleThree(){
-        System.out.print("Nhập số: ");
+        System.out.print("Nhập số x: ");
         int x = scanner.nextInt();
-        System.out.print("Nhập số: ");
+        System.out.print("Nhập số y: ");
         int y = scanner.nextInt();
         if (x != 0 && y != 0){
             if (x < 0 && y < 0){
-                System.out.println("Quadrant 4");
+                System.out.println("Quadrant 3");
             } else if (x > 0 && y < 0) {
-                System.out.println("Quadrant 2");
+                System.out.println("Quadrant 4");
             } else if (x > 0 && y > 0 ) {
                 System.out.println("Quadrant 1");
             }else {
-                System.out.println("Quadrant 3");
+                System.out.println("Quadrant 2");
             }
         }else {
             this.importConsoleThree();
@@ -69,7 +70,7 @@ public class ExerciseBasic {
 
     public void importConsoleFour(){
         int index = 0;
-        while (index < 24){
+        while (index <= 24){
             System.out.print(index + " ");
             if ((index + 1) % 5 == 0){
                 System.out.println();
